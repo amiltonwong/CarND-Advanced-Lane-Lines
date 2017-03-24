@@ -51,6 +51,7 @@ I then used the output `objpoints` and `imgpoints` to compute the camera calibra
 ####1. Provide an example of a distortion-corrected image.
 
 **Apply distortion correction on road images (located at test_images/)**
+
 The code for this step is contained in undistort_img.py
 
 To demonstrate this step, I will describe how I apply the distortion correction to one of the test images like this one:
