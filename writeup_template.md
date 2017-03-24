@@ -15,7 +15,7 @@ The goals / steps of this project are the following:
 
 [image1]: ./examples/undistort_output.png "Undistorted"
 [image1.5]: ./examples/corner_found.jpg "Corners found"
-[image2]: ./test_images/test1.jpg "Road Transformed"
+[image2]: ./figure_1.png "Road image and undistortion"
 [image3]: ./examples/binary_combo_example.jpg "Binary Example"
 [image4]: ./examples/warped_straight_lines.jpg "Warp Example"
 [image5]: ./examples/color_fit_lines.jpg "Fit Visual"
