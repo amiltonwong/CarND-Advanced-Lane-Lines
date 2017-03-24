@@ -29,7 +29,7 @@ The goals / steps of this project are the following:
 ###Camera Calibration
 
 ####1. Briefly state how you computed the camera matrix and distortion coefficients. Provide an example of a distortion corrected calibration image.
-**1. Compute camera calibration using chessboard images.
+**1. Compute camera calibration using chessboard images.**
 
 The code for this step is contained in the camera_cal/cam_cal.py.
 ```
