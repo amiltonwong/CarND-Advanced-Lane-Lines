@@ -26,11 +26,8 @@ The goals / steps of this project are the following:
 ###Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
 
 ---
-###Camera Calibration
 
-####1. Briefly state how you computed the camera matrix and distortion coefficients. Provide an example of a distortion corrected calibration image.
-
-**1. Compute camera calibration using chessboard images.**
+**1. Camera Calibration - Compute camera calibration using chessboard images.**
 
 The code for this step is contained in the camera_cal/cam_cal.py.
 ```
@@ -46,11 +43,9 @@ I then used the output `objpoints` and `imgpoints` to compute the camera calibra
 
 ![alt text][image1.5]
 
-###Pipeline (single images)
 
-####1. Provide an example of a distortion-corrected image.
 
-**2. Apply distortion correction on road images (located at test_images/)**
+**2. Pipeline (single images) - Apply distortion correction on road images (located at test_images/)**
 
 The code for this step is contained in undistort_img.py
 ```
@@ -59,6 +54,8 @@ $ python undistort_img.py
 
 The result of distortion correction on road images (test1.jpg) is shown :
 ![alt text][image2]
+
+The above figure is an example of an original and undistorted image. (e.g. test1.jpg). Note that the position of white car in undistorted image is further back after correcting distortion. See line13-25 in ```undistort_img.py```, which mainly applies cv2.undistort() after loading camera matrix and distortion coefficients. 
 
 **4. Using perspective transformation to rectify binary image ("birds-eye view")**
 
