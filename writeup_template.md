@@ -65,8 +65,8 @@ $ python bin_thresh.py
 ```
 
 To generate a binary image, I mainly use a combination of color and gradient threshold approach. Color thresholding steps are listed at line (-) in ```bin_thresh.py```, while gradient thresholding are listed at line (-).
-Firstly, I use the OpenCV Sobel function cv2.sobel() to obtain the gradient in X direction (finding vertical lines is better).
-Secondly, I convert the image to HSV colour-space and then threshold the S-channel.
+Firstly, I use the OpenCV Sobel function cv2.sobel() to obtain the gradient in X direction (finding vertical lines is better) and threshold out the range of [20,100].
+Secondly, I convert the image to HSV colour-space and then threshold the S-channel in range of [170, 255].
 Finally, I combine these two operations using bitwise-or operation to obtain the output binary thresholded image.
 
 
