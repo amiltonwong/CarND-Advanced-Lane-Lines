@@ -60,8 +60,9 @@ $ python undistort_img.py
 The result of distortion correction on road images (test1.jpg) is shown :
 ![alt text][image2]
 
-**3. Perspective Transform **
+**4. Using perspective transformation to rectify binary image ("birds-eye view")**
 
+The code for this step is contained in the perspective_transform.py, which includes a function called `warper()`, which appears in lines 1 through 8 in the file `example.py` (output_images/examples/example.py) (or, for example, in the 3rd code cell of the IPython notebook).  The `warper()` function takes as inputs an image (`img`), as well as source (`src`) and destination (`dst`) points.  I chose the hardcode the source and destination points in the following manner:
 
 ####2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 I used a combination of color and gradient thresholds to generate a binary image (thresholding steps at lines # through # in `another_file.py`).  Here's an example of my output for this step.  (note: this is not actually from one of the test images)
