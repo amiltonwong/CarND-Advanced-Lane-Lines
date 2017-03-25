@@ -57,6 +57,16 @@ The result of distortion correction on road images (test1.jpg) is shown :
 
 The above figure is an example of an original and undistorted image. (e.g. test1.jpg). Note that the position of white car in undistorted image is further back after correcting distortion. See line13-25 in ```undistort_img.py```, which mainly applies cv2.undistort() after loading camera matrix and distortion coefficients. 
 
+**3. Create a thresholded binary image using color transforms, gradient**
+
+The code for this step is contained in bin_thresh.py
+```
+$ python bin_thresh.py
+```
+
+To generate a binary image, I mainly use a combination of color and gradient threshold approach. Color thresholding steps are listed at line (-) in ```bin_thresh.py```, while gradient thresholding are listed at line (-).
+The following figure is the binary output of test image (test1.jpg)
+
 **4. Using perspective transformation to rectify binary image ("birds-eye view")**
 
 The code for this step is contained in the perspective_transform.py, which includes a function called `unwarp()`, which appears in lines 5 through 12 in the file `perspective_transform.py`.  The `unwarp()` function takes as inputs an image (`img`), as well as source (`src`) and destination (`dst`) points.  I chose the hardcode the source and destination points in the following manner:
