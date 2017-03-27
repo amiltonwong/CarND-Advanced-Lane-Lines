@@ -13,6 +13,7 @@ dist = dist_pickle["dist"]
 exampleImg = cv2.imread('./test_images/test1.jpg')
 exampleImg = cv2.cvtColor(exampleImg, cv2.COLOR_BGR2RGB)
 exampleImg_undistort = cv2.undistort(exampleImg, mtx, dist, None, mtx)
+plt.imsave('./test_images/test1_undist.jpg', exampleImg_undistort)
 
 # Visualize undistortion
 f, (ax1, ax2) = plt.subplots(1, 2, figsize=(20,10))
