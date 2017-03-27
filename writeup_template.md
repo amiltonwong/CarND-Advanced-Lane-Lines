@@ -16,7 +16,7 @@ The goals / steps of this project are the following:
 [image1]: ./examples/undistort_output.png "Undistorted"
 [image1.5]: ./examples/corner_found.jpg "Corners found"
 [image2]: ./figure_1.png "Road image and undistortion"
-[image3]: ./examples/binary_combo_example.jpg "Binary Example"
+[image3]: ./output_images/combined_binary.jpg "Binary thresholded output"
 [image4]: ./examples/warped_straight_lines.jpg "Warp Example"
 [image5]: ./examples/color_fit_lines.jpg "Fit Visual"
 [image6]: ./examples/example_output.jpg "Output"
@@ -70,7 +70,9 @@ Secondly, I convert the image to HSV colour-space and then threshold the S-chann
 Finally, I combine these two operations using bitwise-or operation to obtain the output binary thresholded image.
 
 
-The following figure is the binary output of test image (test1.jpg)
+The following figure is the binary thresholded output (sobel x gradient + HLS s channel threshold) of test image (test1.jpg)
+
+![alt text][image3]
 
 **4. Using perspective transformation to rectify binary image ("birds-eye view")**
 
