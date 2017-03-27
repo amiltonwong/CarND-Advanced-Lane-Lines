@@ -75,7 +75,7 @@ The following figure is the binary thresholded output (sobel x gradient + HLS s 
 
 **4. Using perspective transformation to rectify binary image ("birds-eye view")**
 
-The code for this step is contained in the perspective_transform.py, which includes a function called `unwarp()`, which appears in lines 5 through 12 in the file `perspective_transform.py`.  The `unwarp()` function takes a binary undistorted image as input  (`img`), as well as source (`src`) and destination (`dst`) points.  I chose the hardcode the source and destination points in the following manner:
+The code for this step is contained in the perspective_transform.py, which includes a function called `unwarp()`, which appears in lines 5 through 12 in the file `perspective_transform.py`.  The `unwarp()` function takes a binary undistorted image as input  (`img`), as well as source (`src`) and destination (`dst`) points. For the actual perspective transform,  I use the OpenCV `cv2.getPerspectiveTransform()` and `cv2.warpPerspective()` to execute. Then, I chose the hardcode the source and destination points in the following manner:
 ```
 src = np.float32([(575,464),
                   (730,464), 
@@ -90,6 +90,8 @@ dst = np.float32([(450,0),
 ![alt text][image4]
 
 To obtain the top-down or birds-eye-view of the road, the rectify binary image ("birds-eye view") for test1.jpg is shown as the above figure.
+
+***4. Detect lane pixels and fit to find the lane boundary***
 
 
 ####3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
