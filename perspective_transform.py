@@ -11,9 +11,12 @@ def unwarp(img, src, dst):
     warped = cv2.warpPerspective(img, M, (w,h), flags=cv2.INTER_LINEAR)
     return warped, M, Minv
 
+# load undistorted image
+#exampleImg_undistort  = cv2.imread('./test_images/test1_undist.jpg')
+#exampleImg_undistort = cv2.cvtColor(exampleImg_undistort, cv2.COLOR_BGR2RGB)
 
-exampleImg_undistort  = cv2.imread('./test_images/test1_undist.jpg')
-exampleImg_undistort = cv2.cvtColor(exampleImg_undistort, cv2.COLOR_BGR2RGB)
+# load undistorted binary image
+exampleImg_undistort  = cv2.imread('./output_images/combined_binary_test1.jpg')
 
 h,w = exampleImg_undistort.shape[:2]
 
@@ -38,8 +41,13 @@ y = [src[0][1],src[2][1],src[3][1],src[1][1],src[0][1]]
 ax1.plot(x, y, color='#33cc99', alpha=0.4, linewidth=3, solid_capstyle='round', zorder=2)
 ax1.set_ylim([h,0])
 ax1.set_xlim([0,w])
-ax1.set_title('Undistorted Image', fontsize=30)
+#ax1.set_title('Undistorted Image', fontsize=30)
+ax1.set_title('Undistorted Binary Image', fontsize=30)
 ax2.imshow(exampleImg_unwarp)
 ax2.set_title('Unwarped Image', fontsize=30)
 plt.show()
 print('...')
+
+# save as file
+# binary = 255 * combined_binary.astype("uint8")
+cv2.imwrite("output_images/unwarped_binary_test1.jpg", exampleImg_unwarp)
