@@ -75,7 +75,7 @@ The following figure is the binary thresholded output (sobel x gradient + HLS s 
 
 **4. Using perspective transformation to rectify binary image ("birds-eye view")**
 
-The code for this step is contained in the perspective_transform.py, which includes a function called `unwarp()`, which appears in lines 5 through 12 in the file `perspective_transform.py`.  The `unwarp()` function takes as inputs an image (`img`), as well as source (`src`) and destination (`dst`) points.  I chose the hardcode the source and destination points in the following manner:
+The code for this step is contained in the perspective_transform.py, which includes a function called `unwarp()`, which appears in lines 5 through 12 in the file `perspective_transform.py`.  The `unwarp()` function takes a binary undistorted image as input  (`img`), as well as source (`src`) and destination (`dst`) points.  I chose the hardcode the source and destination points in the following manner:
 ```
 src = np.float32([(575,464),
                   (730,464), 
