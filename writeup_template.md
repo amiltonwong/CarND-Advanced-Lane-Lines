@@ -64,11 +64,10 @@ The code for this step is contained in bin_thresh.py
 $ python bin_thresh.py
 ```
 
-To generate a binary image, I mainly use a combination of color and gradient threshold approach. Color thresholding steps are listed at line (-) in ```bin_thresh.py```, while gradient thresholding are listed at line (-).
+To generate a binary image, I mainly use a combination of color and gradient threshold approach. Color gradient x thresholding steps are listed at line (17-27) in ```bin_thresh.py```, while s channel from HSV color transform thresholding are listed at line (29-38).
 Firstly, I use the OpenCV Sobel function cv2.sobel() to obtain the gradient in X direction (finding vertical lines is better) and threshold out the range of [20,100].
 Secondly, I convert the image to HSV colour-space and then threshold the S-channel in range of [170, 255].
-Finally, I combine these two operations using bitwise-or operation to obtain the output binary thresholded image.
-
+Finally, I combine these two operations using bitwise-or operation to obtain the output binary thresholded image (combined_binary.jpg).
 
 The following figure is the binary thresholded output (sobel x gradient + HLS s channel threshold) of test image (test1.jpg)
 
@@ -89,10 +88,6 @@ dst = np.float32([(450,0),
 ```
 
 
-####2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
-I used a combination of color and gradient thresholds to generate a binary image (thresholding steps at lines # through # in `another_file.py`).  Here's an example of my output for this step.  (note: this is not actually from one of the test images)
-
-![alt text][image3]
 
 ####3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
