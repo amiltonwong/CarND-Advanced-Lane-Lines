@@ -14,25 +14,23 @@ def thresholded_binary(undistorted_img):
         binary thresholded image for use in lane finding.
     """
     
-    # Sobel x
+    # Sobel x gradient
     gray = cv2.cvtColor(undistorted_img, cv2.COLOR_RGB2GRAY)
     sobelx = cv2.Sobel(gray, cv2.CV_64F, 1, 0) # Take the derivative in x
     abs_sobelx = np.absolute(sobelx) # Absolute x derivative to accentuate lines away from horizontal
     scaled_sobel = np.uint8(255 * abs_sobelx / np.max(abs_sobelx))
 
-    # Convert to HLS color space and separate the S channel
-    # Note: img is the undistorted image
-    hls = cv2.cvtColor(undistorted_img, cv2.COLOR_RGB2HLS).astype("float")
-    s_channel = hls[:,:,2]
-    
-
-    
     # Threshold x gradient
     thresh_min = 20
     thresh_max = 100
     sxbinary = np.zeros_like(scaled_sobel)
     sxbinary[(scaled_sobel >= thresh_min) & (scaled_sobel <= thresh_max)] = 1
-    
+
+    # Convert to HLS color space and separate the S channel
+    # Note: img is the undistorted image
+    hls = cv2.cvtColor(undistorted_img, cv2.COLOR_RGB2HLS).astype("float")
+    s_channel = hls[:,:,2]
+        
     # Threshold color channel
     s_thresh_min = 170
     s_thresh_max = 255
