@@ -62,7 +62,7 @@ ax1.axis("off");
 # save as file
 binary = 255 * color_binary.astype("uint8")
 binary = cv2.cvtColor(binary, cv2.COLOR_RGB2BGR)
-cv2.imwrite("output_images/color_binary.jpg", binary)
+cv2.imwrite("output_images/color_binary_test1.jpg", binary)
 
 ax2.set_title("Combined S channel and gradient thresholds")
 ax2.imshow(combined_binary, cmap="gray")
@@ -71,4 +71,4 @@ plt.show()
 
 # save as file
 binary = 255 * combined_binary.astype("uint8")
-cv2.imwrite("output_images/combined_binary.jpg", binary)
+cv2.imwrite("output_images/combined_binary_test1.jpg", binary)
