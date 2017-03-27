@@ -17,7 +17,7 @@ The goals / steps of this project are the following:
 [image1.5]: ./examples/corner_found.jpg "Corners found"
 [image2]: ./figure_1.png "Road image and undistortion"
 [image3]: ./output_images/combined_binary_test1.jpg "Binary thresholded output"
-[image4]: ./examples/warped_straight_lines.jpg "Warp Example"
+[image4]: ./output_images/unwarped_binary_test1.jpg "Warped binary thresholded output"
 [image5]: ./examples/color_fit_lines.jpg "Fit Visual"
 [image6]: ./examples/example_output.jpg "Output"
 [video1]: ./project_video.mp4 "Video"
@@ -87,6 +87,9 @@ dst = np.float32([(450,0),
                   (w-450,h)])
 ```
 
+![alt text][image4]
+
+To obtain the top-down or birds-eye-view of the road, the rectify binary image ("birds-eye view") for test1.jpg is shown as the above figure.
 
 
 ####3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
