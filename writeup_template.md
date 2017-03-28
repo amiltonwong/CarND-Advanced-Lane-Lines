@@ -95,8 +95,7 @@ I verified that my perspective transform was working as expected by drawing the 
 
 **5. Detect lane pixels and fit to find the lane boundary**
 
-The code for this step is contained in detect_lane.py
-
+The code for this step is contained in `detect_lane.py`
 
 I first take a histogram along all the columns in the lower half of the image. The corresponding part locates in line 10. The histogram result looks like the following figure. We can observe two peaks locating at x~=220 and ~=1100.
 
@@ -110,9 +109,16 @@ to find and follow the lines up to the top of the frame. The corresponding part 
 located in line 19-82 in detect_lane.py. Then, I use a second order polynomial to fit 
 the detected left and right lanes (line 85-86).
 
-To visualize the result, I generate x and y values for plotting and we can viewed the result from the following figure:
+To visualize the result, I generate x and y values for plotting and we can view the result from the following figure:
 
 ![alt text][image5]
+
+We could see the detected curves fit well with the orginal white lanes.  We've estimated which pixels belong to the left and right lane lines (shown in red and blue, respectively in the figure above), and we've fit a polynomial to those pixel positions (the curves inside the red and blue strip)
+
+**6. Determine the curvature of the lane and vehicle position with respect to center**
+
+The code for this step is contained in `lane_curvature.py`
+
 
 ####5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
