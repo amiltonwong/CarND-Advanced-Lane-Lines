@@ -18,6 +18,7 @@ The goals / steps of this project are the following:
 [image2]: ./figure_1.png "Road image and undistortion"
 [image3]: ./output_images/combined_binary_test1.jpg "Binary thresholded output"
 [image4]: ./output_images/unwarped.png "Warped binary thresholded output"
+[image4.5]: ./output_images/hist1.png "Histogram"
 [image5]: ./output_images/detect_lanes_test1.png "Detect lanes"
 [image6]: ./examples/example_output.jpg "Output"
 [video1]: ./project_video.mp4 "Video"
@@ -92,12 +93,16 @@ dst = np.float32([(200,0),
 The top-down or birds-eye-view of the road of the rectify binary image ("birds-eye view") for test1.jpg is shown as the above figure.
 I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
 
-***4. Detect lane pixels and fit to find the lane boundary***
+**5. Detect lane pixels and fit to find the lane boundary**
 
 The code for this step is contained in detect_lane.py
 
-4.1
-I first take a histogram along all the columns in the lower half of the image
+
+I first take a histogram along all the columns in the lower half of the image. The corresponding part locates in line 10. The histogram result looks like the following figure. We can observe two peaks locating at x~=220 and ~=1100.
+
+![alt text][image4.5]
+
+Then, 
 
 
 ####4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
