@@ -18,7 +18,7 @@ The goals / steps of this project are the following:
 [image2]: ./figure_1.png "Road image and undistortion"
 [image3]: ./output_images/combined_binary_test1.jpg "Binary thresholded output"
 [image4]: ./output_images/unwarped.png "Warped binary thresholded output"
-[image5]: ./examples/color_fit_lines.jpg "Fit Visual"
+[image5]: ./output_images/detect_lanes_test1.png "Detect lanes"
 [image6]: ./examples/example_output.jpg "Output"
 [video1]: ./project_video.mp4 "Video"
 
