@@ -81,9 +81,9 @@ src = np.float32([(575,464),
                   (730,464), 
                   (280,682), 
                   (1100,682)])
-dst = np.float32([(450,0),
-                  (w-450,0),
-                  (450,h),
+dst = np.float32([(200,0),
+                  (w-200,0),
+                  (200,h),
                   (w-450,h)])
 ```
 
@@ -93,6 +93,12 @@ The top-down or birds-eye-view of the road of the rectify binary image ("birds-e
 I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
 
 ***4. Detect lane pixels and fit to find the lane boundary***
+
+The code for this step is contained in detect_lane.py
+
+4.1
+I first take a histogram along all the columns in the lower half of the image
+
 
 ####4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
