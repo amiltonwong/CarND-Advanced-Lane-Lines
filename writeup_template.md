@@ -102,12 +102,15 @@ I first take a histogram along all the columns in the lower half of the image. T
 
 ![alt text][image4.5]
 
-Then, 
+Then, based on this histogram, I choose these two most prominent 
+peaks in histogram as good indicators of the x-position of the base 
+of the lane lines. I use that as a starting point for where to search for the lines. 
+From that point, I use a sliding window, placed around the line centers, 
+to find and follow the lines up to the top of the frame. The corresponding part of code
+located in line 19-82 in detect_lane.py. Then, I use a second order polynomial to fit 
+the detected left and right lanes (line 85-86).
 
-
-####4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
-
-Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:
+To visualize the result, I generate x and y values for plotting and we can viewed the result from the following figure:
 
 ![alt text][image5]
 
