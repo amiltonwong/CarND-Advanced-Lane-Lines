@@ -18,18 +18,23 @@ def unwarp(img, src, dst):
 # load undistorted binary image
 exampleImg_undistort  = cv2.imread('./output_images/combined_binary_test1.jpg')
 
-h,w = exampleImg_undistort.shape[:2]
+#h,w = exampleImg_undistort.shape[:2]
+
+img_size = exampleImg_undistort.shape[:2]
+w = img_size[0]
+h = img_size[1]
 
 # define source and destination points for transform
-src = np.float32([(575,464),
-                  (730,464), 
-                  (280,682), 
-                  (1100,682)])
-
-dst = np.float32([(200,0),
-                  (w-200,0),
-                  (200,h),
-                  (w-200,h)])
+src = np.float32(
+    [[(img_size[0] / 2) - 55, img_size[1] / 2 + 100],
+    [((img_size[0] / 6) - 10), img_size[1]],
+    [(img_size[0] * 5 / 6) + 60, img_size[1]],
+    [(img_size[0] / 2 + 55), img_size[1] / 2 + 100]])
+dst = np.float32(
+    [[(img_size[0] / 4), 0],
+    [(img_size[0] / 4), img_size[1]],
+    [(img_size[0] * 3 / 4), img_size[1]],
+    [(img_size[0] * 3 / 4), 0]])
 
 exampleImg_unwarp, M, Minv = unwarp(exampleImg_undistort, src, dst)
 
@@ -48,7 +53,3 @@ ax2.imshow(exampleImg_unwarp)
 ax2.set_title('Unwarped Image', fontsize=30)
 plt.show()
 print('...')
-
-# save as file
-# binary = 255 * combined_binary.astype("uint8")
-cv2.imwrite("output_images/unwarped_binary_test1.jpg", exampleImg_unwarp)
