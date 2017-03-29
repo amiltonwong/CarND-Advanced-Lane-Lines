@@ -117,12 +117,15 @@ We could see the detected curves fit well with the orginal white lanes.  We've e
 
 **6. Determine the curvature of the lane and vehicle position with respect to center**
 
-The code for this step is contained in `detect_lane_curvature.py`
-The corresponding part for curvature computation is listed in line 110-113 in `detect_lane_curvature.py`
+The code for this step is contained in `detect_lane_curvature_unwarp.py`
+The corresponding part for curvature computation is listed in line 110-113 in `detect_lane_curvature_unwarp.py` . I use this formula (http://www.intmath.com/applications-differentiation/8-radius-curvature.php) to compute. Then, we compute the x intercept for left lane and right lane at the bottom of the image and compute the center between them. We assume the camera is located at the center of the front view. Thus deviation of vehicle position with respect to the center of the lane is computed as the difference between center of lane and the half of scene width (line 126-133). 
+
+The vehicle position with respect to center is computed using
 
 ####5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
 I did this in lines # through # in my code in `my_other_file.py`
+
 
 ####6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
