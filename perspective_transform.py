@@ -1,6 +1,7 @@
 import numpy as np
 import cv2
 import matplotlib.pyplot as plt
+import pickle
 
 def unwarp(img, src, dst):
     h,w = img.shape[:2]
@@ -32,6 +33,12 @@ dst = np.float32([(200,0),
                   (w-200,h)])
 
 exampleImg_unwarp, M, Minv = unwarp(exampleImg_undistort, src, dst)
+
+# Save the warp result for later use.
+dist_pickle = {}
+dist_pickle["M"] = M
+dist_pickle["Minv"] = Minv
+pickle.dump(dist_pickle, open("./warp_pickle.p", "wb"))
 
 # Visualize unwarp
 f, (ax1, ax2) = plt.subplots(1, 2, figsize=(20,10))
