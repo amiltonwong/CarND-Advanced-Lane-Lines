@@ -20,7 +20,7 @@ The goals / steps of this project are the following:
 [image4]: ./output_images/unwarped.png "Warped binary thresholded output"
 [image4.5]: ./output_images/hist1.png "Histogram"
 [image5]: ./output_images/detect_lanes_test1.png "Detect lanes"
-[image6]: ./examples/example_output.jpg "Output"
+[image6]: ./output_images/result_test1.jpg "Final Output"
 [video1]: ./project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
@@ -125,6 +125,13 @@ The vehicle position with respect to center is computed using
 ####5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
 I did this in lines # through # in my code in `my_other_file.py`
+
+**7. Warp the detected lane boundaries back onto the original image**
+
+code: line 138-192 in `final.py`
+We reuse Minv matrix to unwarp the detected lane back to original image, which is listed in draw_lanes_on_image() in line 138-175 in `final.py`. cv2.addWeighted() is used to combine the result with the original image, also the radius of curvature of left and right lanes, deviation position from vehicle are overlaid on it. The final result is shown as the following figure.
+
+![alt text][image6]
 
 
 ####6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
