@@ -132,7 +132,9 @@ We reuse Minv matrix to unwarp the detected lane back to original image, which i
 
 **8. The pipeline for video (project_video.mp4)**
 
-The following link shows the final video output for "project_video.mp4".  My pipeline perform reasonably well on the entire project video .
+The code for this pipeline is in `process_video.py`
+
+The following link shows the final video output for "project_video.mp4".  My pipeline perform reasonably well on the entire project video . The total processing time is around 230 seconds for this "project_video.mp4" (1261 frames). Thus, the average running time my pipeleine supports is: 1261/230 = 5.48 fps 
 
 Here's the [link](https://youtu.be/mBHRAK3qlGI)
 
@@ -142,5 +144,5 @@ Here's the [link](https://youtu.be/mBHRAK3qlGI)
 
 ####1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+Here I'll talk about the approach I took: what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
 
