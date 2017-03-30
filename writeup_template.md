@@ -97,7 +97,7 @@ I verified that my perspective transform was working as expected by drawing the 
 
 The code for this step is contained in `final.py`
 
-I first take a histogram along all the columns in the lower half of the image. The corresponding part locates in line 10. The histogram result looks like the following figure. We can observe two peaks locating at x~=220 and ~=1100.
+I first take a histogram along all the columns in the lower half of the image. The corresponding part locates in line 9 in `final.py`. The histogram result looks like the following figure. We can observe two peaks locating at x~=220 and ~=1100.
 
 ![alt text][image4.5]
 
@@ -105,9 +105,8 @@ Then, based on this histogram, I choose these two most prominent
 peaks in histogram as good indicators of the x-position of the base 
 of the lane lines. I use that as a starting point for where to search for the lines. 
 From that point, I use a sliding window, placed around the line centers, 
-to find and follow the lines up to the top of the frame(use 9 windows from the bottom to the top of the image). The corresponding part of code
-located in line 19-82 in detect_lane_curvature.py. Then, I use a second order polynomial to fit 
-the detected left and right lanes (line 85-86).
+to find and follow the lines up to the top of the frame(use 9 windows from the bottom to the top of the image). The corresponding part of code located in line 18-81 in `final.py`. Then, I use a second order polynomial to fit 
+the detected left and right lanes (line 84-85).
 
 To visualize the result, I generate x and y values for plotting and we can view the result from the following figure:
 
@@ -118,7 +117,7 @@ We could see the detected curves fit well with the orginal white lanes.  We've e
 **6. Determine the curvature of the lane and vehicle position with respect to center**
 
 The code for this step is contained in `final.py`
-The corresponding part for curvature computation is listed in line 110-113 in `final.py` . I use this formula (http://www.intmath.com/applications-differentiation/8-radius-curvature.php) to compute. Then, we compute the x intercept for left lane and right lane at the bottom of the image and compute the center between them. We assume the camera is located at the center of the front view. Thus deviation of vehicle position with respect to the center of the lane is computed as the difference between center of lane and the half of scene width (line 126-133). 
+The corresponding part for curvature computation with pixel-to-meter scaling is listed in line 112-119 in `final.py` . I use this formula (http://www.intmath.com/applications-differentiation/8-radius-curvature.php) to compute. Then, we compute the x intercept for left lane and right lane at the bottom of the image and compute the center between them. We assume the camera is located at the center of the front view. Thus deviation of vehicle position with respect to the center of the lane is computed as the difference between center of lane and the half of scene width (line 126-133). 
 
 **7. Warp the detected lane boundaries back onto the original image**
 
