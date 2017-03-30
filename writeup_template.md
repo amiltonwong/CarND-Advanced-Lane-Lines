@@ -141,8 +141,6 @@ Here's the [link](https://youtu.be/mBHRAK3qlGI)
 
 **9. Discussion**
 
-####1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
-
 Here I'll talk about the approach I took: The entire pipeline contains the following modules:
 1. camera calibration and undistortion. (use calibration and undistort function in opencv)
 2. binary thresholding.(thresholding based on combination with sobel x gradient and HSL color transformation)
