@@ -144,5 +144,13 @@ Here's the [link](https://youtu.be/mBHRAK3qlGI)
 
 ####1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-Here I'll talk about the approach I took: what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+Here I'll talk about the approach I took: The entire pipeline contains the following modules:
+1. camera calibration and undistortion. ()
+2. binary thresholding.()
+3. image warping using perspective transformation based on src points to dst points.()
+4. lane detection on warped binary image.()
+5. computation on radius of curvature and deviation to center point of lane.()
+6. unwarp the detected lane back to original image (front view). ()
+
+what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
 
