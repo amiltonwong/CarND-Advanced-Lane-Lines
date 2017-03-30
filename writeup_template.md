@@ -120,37 +120,25 @@ We could see the detected curves fit well with the orginal white lanes.  We've e
 The code for this step is contained in `detect_lane_curvature_unwarp.py`
 The corresponding part for curvature computation is listed in line 110-113 in `detect_lane_curvature_unwarp.py` . I use this formula (http://www.intmath.com/applications-differentiation/8-radius-curvature.php) to compute. Then, we compute the x intercept for left lane and right lane at the bottom of the image and compute the center between them. We assume the camera is located at the center of the front view. Thus deviation of vehicle position with respect to the center of the lane is computed as the difference between center of lane and the half of scene width (line 126-133). 
 
-The vehicle position with respect to center is computed using
-
-####5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
-
-I did this in lines # through # in my code in `my_other_file.py`
-
 **7. Warp the detected lane boundaries back onto the original image**
 
 code: line 138-192 in `final.py`
-We reuse Minv matrix to unwarp the detected lane back to original image, which is listed in draw_lanes_on_image() in line 138-175 in `final.py`. cv2.addWeighted() is used to combine the result with the original image, also the radius of curvature of left and right lanes, deviation position from vehicle are overlaid on it. The final result is shown as the following figure.
+We reuse Minv matrix to unwarp the detected lane back to original image, which is listed in draw_lanes_on_image() in line 138-175 in `final.py`. cv2.addWeighted() is used to combine the result with the original image, also the radius of curvature of left and right lanes, deviation position from vehicle are overlaid on it. The final result is shown as the following figure. We could view the result plotted back down onto the road such that the lane area is identified clearly.
 
 ![alt text][image6]
 
 
-####6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
+---
 
-I implemented this step in lines # through # in my code in `yet_another_file.py` in the function `map_lane()`.  Here is an example of my result on a test image:
+**8. The pipeline for video (project_video.mp4) **
 
-![alt text][image6]
+The following link shows the final video output for "project_video.mp4".  My pipeline perform reasonably well on the entire project video .
+
+Here's a [link (https://youtu.be/mBHRAK3qlGI) to my video result](./project_video.mp4)
 
 ---
 
-###Pipeline (video)
-
-####1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
-
-Here's a [link to my video result](./project_video.mp4)
-
----
-
-###Discussion
+**9. Discussion**
 
 ####1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
