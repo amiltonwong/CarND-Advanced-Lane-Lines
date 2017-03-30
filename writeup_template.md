@@ -95,7 +95,7 @@ I verified that my perspective transform was working as expected by drawing the 
 
 **5. Detect lane pixels and fit to find the lane boundary**
 
-The code for this step is contained in `detect_lane_curvature.py`
+The code for this step is contained in `final.py`
 
 I first take a histogram along all the columns in the lower half of the image. The corresponding part locates in line 10. The histogram result looks like the following figure. We can observe two peaks locating at x~=220 and ~=1100.
 
@@ -117,8 +117,8 @@ We could see the detected curves fit well with the orginal white lanes.  We've e
 
 **6. Determine the curvature of the lane and vehicle position with respect to center**
 
-The code for this step is contained in `detect_lane_curvature_unwarp.py`
-The corresponding part for curvature computation is listed in line 110-113 in `detect_lane_curvature_unwarp.py` . I use this formula (http://www.intmath.com/applications-differentiation/8-radius-curvature.php) to compute. Then, we compute the x intercept for left lane and right lane at the bottom of the image and compute the center between them. We assume the camera is located at the center of the front view. Thus deviation of vehicle position with respect to the center of the lane is computed as the difference between center of lane and the half of scene width (line 126-133). 
+The code for this step is contained in `final.py`
+The corresponding part for curvature computation is listed in line 110-113 in `final.py` . I use this formula (http://www.intmath.com/applications-differentiation/8-radius-curvature.php) to compute. Then, we compute the x intercept for left lane and right lane at the bottom of the image and compute the center between them. We assume the camera is located at the center of the front view. Thus deviation of vehicle position with respect to the center of the lane is computed as the difference between center of lane and the half of scene width (line 126-133). 
 
 **7. Warp the detected lane boundaries back onto the original image**
 
@@ -134,7 +134,7 @@ We reuse Minv matrix to unwarp the detected lane back to original image, which i
 
 The code for this pipeline is in `process_video.py`
 
-The following link shows the final video output for "project_video.mp4".  My pipeline perform reasonably well on the entire project video . The total processing time is around 230 seconds for this "project_video.mp4" (1261 frames). Thus, the average running time my pipeleine supports is: 1261/230 = 5.48 fps 
+The following link shows the final video output for "project_video.mp4".  My pipeline performs reasonably well on the entire project video . The total processing time is around 230 seconds for this "project_video.mp4" (1261 frames). Thus, the average running time my pipeleine supports is: 1261/230 = 5.48 fps 
 
 Here's the [link](https://youtu.be/mBHRAK3qlGI)
 
@@ -148,9 +148,9 @@ Here I'll talk about the approach I took: The entire pipeline contains the follo
 1. camera calibration and undistortion. (use calibration and undistort function in opencv)
 2. binary thresholding.(thresholding based on combination with sobel x gradient and HSL color transformation)
 3. image warping using perspective transformation based on src points to dst points.(use warpPerspective function. Currently, src points to dst points are manually defined. src points to dst points automatically determined is deserved for further work. )
-4. lane detection on warped binary image.()
-5. computation on radius of curvature and deviation to center point of lane.()
-6. unwarp the detected lane back to original image (front view). ()
+4. lane detection on warped binary image.(histogram peak finding + sliding window)
+5. computation on radius of curvature and deviation to center point of lane. (radius of curvature formula)
+6. unwarp the detected lane back to original image (front view). (use warpPerspective function)
 
-what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+The implemented pipeline performs reasonably well on the entire example video, except at this [moment]https://youtu.be/mBHRAK3qlGI?t=41
 
