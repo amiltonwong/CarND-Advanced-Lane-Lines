@@ -145,9 +145,9 @@ Here's the [link](https://youtu.be/mBHRAK3qlGI)
 ####1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
 Here I'll talk about the approach I took: The entire pipeline contains the following modules:
-1. camera calibration and undistortion. ()
-2. binary thresholding.()
-3. image warping using perspective transformation based on src points to dst points.()
+1. camera calibration and undistortion. (use calibration and undistort function in opencv)
+2. binary thresholding.(thresholding based on combination with sobel x gradient and HSL color transformation)
+3. image warping using perspective transformation based on src points to dst points.(use warpPerspective function. Currently, src points to dst points are manually defined. src points to dst points automatically determined is deserved for further work. )
 4. lane detection on warped binary image.()
 5. computation on radius of curvature and deviation to center point of lane.()
 6. unwarp the detected lane back to original image (front view). ()
