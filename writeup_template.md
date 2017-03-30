@@ -130,11 +130,12 @@ We reuse Minv matrix to unwarp the detected lane back to original image, which i
 
 ---
 
-**8. The pipeline for video (project_video.mp4) **
+**8. The pipeline for video (project_video.mp4)**
 
 The following link shows the final video output for "project_video.mp4".  My pipeline perform reasonably well on the entire project video .
 
 Here's the [link](https://youtu.be/mBHRAK3qlGI)
+
 ---
 
 **9. Discussion**
