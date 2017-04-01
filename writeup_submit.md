@@ -135,7 +135,7 @@ We reuse Minv matrix to unwarp the detected lane back to original image, which i
 
 The code for this pipeline is in `process_video3.py`
 
-The following link shows the final video output for "project_video3.mp4".  My pipeline performs reasonably well on the entire project video and solve the binary thresholding problems related to shadows. In function thresholded_binary(),  I append a mask to filter out pixels inside the shape from src points because I found that the shadow mainly located inside the shape. The corresponding code is located in line 60-66 in `process_video3.py`.  The total processing time is around 230 seconds for this "project_video.mp4" (1261 frames). Thus, the average running time my pipeleine supports is: 1261/230 = 5.48 fps 
+The following link shows the final video output for "project_video.mp4".  My pipeline performs reasonably well on the entire project video and solve the binary thresholding problems related to shadows. In function thresholded_binary(),  I append a mask to filter out pixels inside the shape from src points because I found that the shadow mainly located inside the shape. The corresponding code is located in line 60-66 in `process_video3.py`.  The total processing time is around 230 seconds for this "project_video.mp4" (1261 frames). Thus, the average running time my pipeleine supports is: 1261/230 = 5.48 fps 
 
 Here's the [link](https://youtu.be/4dY3nP8gJUM)
 
