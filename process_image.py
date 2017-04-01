@@ -248,7 +248,7 @@ def process_image(image):
 
 
 # Run on a test image
-img = cv2.imread("test_images/test1.jpg")
+img = cv2.imread("problem_imgs/frame_001046.jpg")
 img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
 result = process_image(img)
@@ -258,11 +258,5 @@ plt.imshow(result)
 plt.axis("off");
 plt.show()
 
-'''
-# Run in a test video
-video_output = "output_images/project_video_output.mp4"
-clip1 = VideoFileClip("project_video.mp4")
-clip1_output = clip1.fl_image(process_image) #NOTE: this function expects color images!!
-%time clip1_output.write_videofile(video_output, audio=False)
-'''
+
 
