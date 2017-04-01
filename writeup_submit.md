@@ -21,6 +21,8 @@ The goals / steps of this project are the following:
 [image4.5]: ./output_images/hist1.png "Histogram"
 [image5]: ./output_images/detect_lanes_test1.png "Detect lanes"
 [image6]: ./output_images/result_test1.jpg "Final Output"
+[image7]: ./output_images/correction1.png "Correction 1"
+[image8]: ./output_images/correction2.png "Correction 2"
 [video1]: ./project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
@@ -131,11 +133,17 @@ We reuse Minv matrix to unwarp the detected lane back to original image, which i
 
 **8. The pipeline for video (project_video.mp4)**
 
-The code for this pipeline is in `process_video.py`
+The code for this pipeline is in `process_video3.py`
 
-The following link shows the final video output for "project_video.mp4".  My pipeline performs reasonably well on the entire project video . The total processing time is around 230 seconds for this "project_video.mp4" (1261 frames). Thus, the average running time my pipeleine supports is: 1261/230 = 5.48 fps 
+The following link shows the final video output for "project_video3.mp4".  My pipeline performs reasonably well on the entire project video and solve the binary thresholding problems related to shadows. In function thresholded_binary(),  I append a mask to filter out pixels inside the shape from src points because I found that the shadow mainly located inside the shape. The corresponding code is located in line 60-66 in `process_video3.py`.  The total processing time is around 230 seconds for this "project_video.mp4" (1261 frames). Thus, the average running time my pipeleine supports is: 1261/230 = 5.48 fps 
 
-Here's the [link](https://youtu.be/mBHRAK3qlGI)
+Here's the [link](https://youtu.be/4dY3nP8gJUM)
+
+And the following figures are the comparisons between the old and correction output (with mask appended).
+
+![alt text][image7]
+
+![alt text][image8]
 
 ---
 
