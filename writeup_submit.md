@@ -157,5 +157,5 @@ Here I'll talk about the approach I took: The entire pipeline contains the follo
 5. computation on radius of curvature and deviation to center point of lane. (radius of curvature formula)
 6. unwarp the detected lane back to original image (front view). (use warpPerspective function)
 
-The implemented pipeline performs reasonably well on the entire example video, except at this [moment](https://youtu.be/mBHRAK3qlGI?t=41), which is influenced by the shadow of the trees. One possible solution for this issue will be to integrate the detection with bayseian filtering to smooth the temporal transition for the lane detection.
+The implemented pipeline performs reasonably well on the entire example video, except at this [moment](https://youtu.be/mBHRAK3qlGI?t=41), which is influenced by the shadow of the trees. One possible solution for this issue will be to integrate the detection with bayseian filtering to smooth the temporal transition for the lane detection or append a mask to filtering unwanted area (mainly shadows located) as implemented in line 60-66 in `process_video3.py`.
 
