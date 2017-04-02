@@ -67,12 +67,13 @@ The code for this step is contained in bin_thresh.py
 $ python bin_thresh.py
 ```
 
-To generate a binary image, I mainly use a combination of color and gradient threshold approach. Color gradient x thresholding steps are listed at line (17-27) in ```bin_thresh.py```, while S (Saturation) channel from HLS (Hue, Lightness, Saturation) color transform thresholding are listed at line (29-38).
-Firstly, I use the OpenCV Sobel function cv2.sobel() to obtain the gradient in X direction (finding vertical lines is better) and threshold out the range of [20,100].
-Secondly, I convert the image to HLS colour-space and then threshold the S-channel in range of [170, 255].
-Finally, I combine these two operations using bitwise-or operation to obtain the output binary thresholded image (combined_binary.jpg).
+To generate a binary image, I mainly use a combination of color transform (HLS+HSV) and Sobel x gradient threshold approach. Sobel gradient x thresholding steps are listed at line (17-27) in ```bin_thresh.py```, while S (Saturation) channel from HLS (Hue, Lightness, Saturation) color transform thresholding are listed at line (29-36) and V (Value) chanel from HSV (Hue, Saturation, Value) color transform thresholding are listed at line (38-45).
 
-The following figure is the binary thresholded output (sobel x gradient + HLS s channel threshold) of test image (test1.jpg)
+Firstly, I use the OpenCV Sobel function cv2.sobel() to obtain the gradient in X direction (finding vertical lines is better) and threshold out the range of [20,100] to obtain binary outoput sxbinary.
+Secondly, I convert the image to HLS colour-space, and HSV colour-space.  And then threshold the S-channel in range of [100, 255] and threshold the V-channel in range of [50, 255] to sense the yellow and white lines. I choose to bit-add the output from them to obtain s_v_binary. (line 47-49)
+Finally, I combine these operations above using bitwise-or operation to obtain the output binary thresholded image (combined_binary.jpg). line 55-57
+
+The following figure is the binary thresholded output (sobel x gradient + HLS s channel & HSV v channel) of test image (test1.jpg)
 
 ![alt text][image3]
 
@@ -137,7 +138,7 @@ The code for this pipeline is in `process_video3.py`
 
 The following link shows the final video output for "project_video.mp4".  My pipeline performs reasonably well on the entire project video and solve the binary thresholding problems related to shadows. In function thresholded_binary(),  I append a mask to filter out pixels inside the shape from src points because I found that the shadow mainly located inside the shape. The corresponding code is located in line 60-66 in `process_video3.py`.  The total processing time is around 230 seconds for this "project_video.mp4" (1261 frames). Thus, the average running time my pipeleine supports is: 1261/230 = 5.48 fps 
 
-Here's the [link](https://youtu.be/4dY3nP8gJUM)
+Here's the [link](https://www.youtube.com/watch?v=a4E0pT9Tvl8&feature=youtu.be)
 
 And the following figures are the comparisons between the old and correction output (with mask appended).
 
