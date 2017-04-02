@@ -23,6 +23,8 @@ The goals / steps of this project are the following:
 [image6]: ./output_images/result_test1.jpg "Final Output"
 [image7]: ./output_images/correction1.png "Correction 1"
 [image8]: ./output_images/correction2.png "Correction 2"
+[image9]: ./output_images/correction3.png "Correction 3"
+[image10]: ./output_images/correction4.png "Correction 4"
 [video1]: ./project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
@@ -134,9 +136,10 @@ We reuse Minv matrix to unwarp the detected lane back to original image, which i
 
 **8. The pipeline for video (project_video.mp4)**
 
-The code for this pipeline is in `process_video3.py`
+The code for this pipeline is in `process_video4.py`
 
-The following link shows the final video output for "project_video.mp4".  My pipeline performs reasonably well on the entire project video and solve the binary thresholding problems related to shadows. In function thresholded_binary(),  I append a mask to filter out pixels inside the shape from src points because I found that the shadow mainly located inside the shape. The corresponding code is located in line 60-66 in `process_video3.py`.  The total processing time is around 230 seconds for this "project_video.mp4" (1261 frames). Thus, the average running time my pipeleine supports is: 1261/230 = 5.48 fps 
+The following link shows the final video output for "project_video.mp4".  My pipeline performs reasonably well on the entire project video and solve the binary thresholding problems related to shadows. In function thresholded_binary(),  I append a mask (line 72-79 in `process_video4.py`) to filter out pixels inside the shape from src points because I found that the shadow mainly located inside the shape. Also, I applied HLS S channel + HSV V channel threshold to more accurately capture the yellow and white lines of the lane. (line 42-62 in `process_video4.py`)
+The total processing time is around 300 seconds for this "project_video.mp4" (1261 frames). Thus, the average running time my pipeleine supports is: 1261/305 = 4.18 fps 
 
 Here's the [link](https://www.youtube.com/watch?v=a4E0pT9Tvl8&feature=youtu.be)
 
@@ -145,6 +148,10 @@ And the following figures are the comparisons between the old and correction out
 ![alt text][image7]
 
 ![alt text][image8]
+
+![alt text][image9]
+
+![alt text][image10]
 
 ---
 
@@ -158,5 +165,5 @@ Here I'll talk about the approach I took: The entire pipeline contains the follo
 5. computation on radius of curvature and deviation to center point of lane. (radius of curvature formula)
 6. unwarp the detected lane back to original image (front view). (use warpPerspective function)
 
-The implemented pipeline performs reasonably well on the entire example video, except at this [moment](https://youtu.be/mBHRAK3qlGI?t=41), which is influenced by the shadow of the trees. One possible solution for this issue will be to integrate the detection with bayseian filtering to smooth the temporal transition for the lane detection or append a mask to filtering unwanted area (mainly shadows located) as implemented in line 60-66 in `process_video3.py`.
+The implemented pipeline performs reasonably well on the entire example video, except at this [moment](https://youtu.be/mBHRAK3qlGI?t=41), which is influenced by the shadow of the trees. One possible solution for this issue will be to integrate the detection with bayseian filtering to smooth the temporal transition for the lane detection or append a mask to filtering unwanted area (mainly shadows located) as implemented in line 72-79 in `process_video3.py`.
 
