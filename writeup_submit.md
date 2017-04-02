@@ -143,7 +143,7 @@ The total processing time is around 300 seconds for this "project_video.mp4" (12
 
 Here's the [link](https://www.youtube.com/watch?v=a4E0pT9Tvl8&feature=youtu.be)
 
-And the following figures are the comparisons between the old and correction output (with mask appended).
+And the following figures are the comparisons between the old and correction output (with mask appended and HLS+HSV Color thresholding).
 
 ![alt text][image7]
 
